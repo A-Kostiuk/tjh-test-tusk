@@ -7,21 +7,25 @@ import { HomePage } from '../pages/home-page/home-page';
 import { CoursesPage } from '../pages/courses-page/courses-page';
 import { GlobalStyle } from './styles';
 import { PageWrapper } from '../layouts/page-wrapper/page-wrapper';
+import { Provider } from 'react-redux';
+import { store } from '../../store';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
-        <Normalize />
-        <GlobalStyle />
-        <Routes>
-          <Route path={'/'} element={<PageWrapper />}>
-            <Route index element={<HomePage />} />
-            <Route path={'/courses'} element={<CoursesPage />} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={defaultTheme}>
+          <Normalize />
+          <GlobalStyle />
+          <Routes>
+            <Route path={'/'} element={<PageWrapper />}>
+              <Route index element={<HomePage />} />
+              <Route path={'/courses'} element={<CoursesPage />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
+      </Provider>
     </BrowserRouter>
   );
 }

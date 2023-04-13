@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { NavList } from './styled';
+import { MainNavToggleBtn, NavList } from './styled';
 import { MainNavItem } from '../../ui/main-nav-item/main-nav-item';
+import { useState } from 'react';
 
 type INavItem = {
   title: string,
@@ -27,12 +28,19 @@ const navItems: INavItem[] = [
 ];
 
 export const MainNav = () => {
+  const [navState, setNavState] = useState<boolean>(false);
+
+  const mainNavToggleBtnOnClickHandler = () => {
+    setNavState(!navState);
+  };
+
   return (
     <nav>
-      <NavList>
+      <NavList isOpen={navState}>
         {navItems.map((navItem) => <MainNavItem key={navItem.title} {...navItem} />,
         )}
       </NavList>
+      <MainNavToggleBtn isOpen={navState} aria-label={'Toggle navigation'} onClick={mainNavToggleBtnOnClickHandler} />
     </nav>
   );
 };

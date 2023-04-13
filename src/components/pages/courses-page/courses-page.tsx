@@ -1,9 +1,16 @@
 import * as React from 'react';
+import { ContentWrapper } from './styled';
+import { CoursesFilter } from '../../blocks/courses-filter/courses-filter';
+import { ListOfCourses } from '../../blocks/list-of-courses/list-of-courses';
 
 export const CoursesPage = () => {
   return (
-    <div>
-      <h1>Courses</h1>
-    </div>
+    <>
+      <h1 hidden={true}>Courses</h1>
+      <ContentWrapper>
+        <CoursesFilter />
+        <ListOfCourses />
+      </ContentWrapper>
+    </>
   );
 };

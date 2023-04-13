@@ -3,6 +3,7 @@ import { Indents } from '../../styled/indents/indents';
 
 export const StyledHeader = styled.header`
   position: sticky;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;

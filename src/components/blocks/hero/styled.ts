@@ -19,15 +19,22 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 64px;
+  font-size: 48px;
   line-height: 1.5;
   font-weight: 700;
   margin: 0 0 20px;
+
+  @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
+    font-size: 64px;
+  }
 `;
 
 export const Subtitle = styled.p`
-  font-size: 32px;
+  font-size: 24px;
   margin: 0 0 60px;
+  @media (min-width: ${({theme}) => theme.viewports.tabletWidth}) {
+    font-size: 32px;
+  }
 `;
 
 export const StartBtn = styled.button`
